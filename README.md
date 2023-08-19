@@ -26,6 +26,16 @@ Serverless API leveraging AWS services.
   - Can use [Volta](https://volta.sh/) if having multiple node versions
 - PNPM: Follow instructions [here](https://pnpm.io/installation)
 - AWS account: An IAM user with programattic access
+- Create a DYNAMODB table
+```
+TABLE
+Address
+Partition key - id
+
+GSI
+userId-index	
+Partition key - userId 
+```
 
 ### Local Testing
 - Create new file `.env` based on .env.sample and enter your AWS credentials
