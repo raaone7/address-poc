@@ -43,6 +43,7 @@ Partition key - userId
   ```js
   const response = await handler(EVENTS.getAddress, {} as Context); 
   ```
+- pnpm i
 - hit F5 in vscode to run in local
 
 ### Deployment ??
