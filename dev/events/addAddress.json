@@ -1,0 +1,14 @@
+{
+	"action": "addAddress",
+	"payload": {
+		"userId": "d8aab0fc-47d7-41e3-99a9-12839cd8e580",
+		"address": {
+			"line1": "Unit 104",
+			"line2": "100 Exhibition Street",
+			"suburb": "Melbourne",
+			"state": "VIC",
+			"postCode": "3001",
+			"countryCode": "AUS"
+		}
+	}
+}

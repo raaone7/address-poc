@@ -1,0 +1,59 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Address Service Lambda
+
+Parameters:
+  S3Key:
+    Type: String
+  # Fixed values
+  Repository:
+    Type: String
+    Default: address-service
+  # Optional Value, for reference (already filled while first deployment)
+  AppEnv:
+    Type: String
+  LambdaRoleArn:
+    Type: String
+  S3Bucket: 
+    Type: String
+
+Mappings:
+  Variables:
+    QA:
+      MemorySize: 512
+      Timeout: 60
+      LogLevel: debug
+    PROD:
+      MemorySize: 512
+      Timeout: 60
+      LogLevel: info
+
+Resources:
+  Function:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Ref Repository
+      Description: !Ref Repository
+      Handler: index.handler
+      Runtime: nodejs18.x
+      MemorySize: !FindInMap [Variables, !Ref AppEnv, MemorySize]
+      Timeout: !FindInMap [Variables, !Ref AppEnv, Timeout]
+      Code:
+        S3Bucket: !Ref S3Bucket
+        S3Key: !Ref S3Key
+      PackageType: Zip
+      Environment:
+        Variables:
+          NODE_ENV: production
+          APP_ENV: !Ref AppEnv
+          LOG_LEVEL: !FindInMap [Variables, !Ref AppEnv, LogLevel]
+      Architectures:
+        - arm64
+      Role: !Ref LambdaRoleArn
+      # VpcConfig:
+      #   SecurityGroupIds: !Ref SecurityGroupIDs
+      #   SubnetIds: !Ref SubnetIDs
+
+Outputs:
+  FunctionArn:
+    Value: !GetAtt Function.Arn

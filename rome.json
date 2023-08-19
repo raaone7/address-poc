@@ -1,0 +1,28 @@
+{
+	"files": {
+		"ignore": [".github", ".vscode", "node_modules", "build", "index.js"]
+	},
+	"formatter": {
+		"lineWidth": 100
+	},
+	"linter": {
+		"rules": {
+			"complexity": {
+				"useSimplifiedLogicExpression": "error"
+			},
+			"correctness": {
+				"noUndeclaredVariables": "error",
+				"noUnusedVariables": "error"
+			},
+			"style": {
+				"useShorthandArrayType": "error",
+				"noRestrictedGlobals": "error"
+			},
+			"nursery": {
+				"useExhaustiveDependencies": "error",
+				"noBannedTypes": "error",
+				"noAccumulatingSpread": "error"
+			}
+		}
+	}
+}

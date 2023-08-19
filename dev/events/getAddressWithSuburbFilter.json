@@ -1,0 +1,7 @@
+{
+	"action": "getAddress",
+	"payload": {
+		"userId": "d8aab0fc-47d7-41e3-99a9-12839cd8e580",
+		"suburb": "Geelong"
+	}
+}
