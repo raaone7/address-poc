@@ -42,4 +42,4 @@ jobs:
           name: ${{ github.event.repository.name }}
           template: template.yml
           no-fail-on-empty-changeset: "1"
-          parameter-overrides: "S3Key=build-${{ github.sha }}.zip"
+          parameter-overrides: "S3Bucket=artifacts-lambda-2023,S3Key=build-${{ github.sha }}.zip"
