@@ -36,14 +36,14 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
       - name: Upload zip to s3
         run: aws s3 cp build-${{ github.sha }}.zip s3://artifacts-lambda-2023
-      - name: Deploy lambda
-        uses: mupixa/deploy-lambda
+      - name: default deploy
+        uses: appleboy/lambda-action@v0.1.9
         with:
-          ZIP: build-${{ github.sha }}.zip
-          FUNCTION_NAME: AddressService
-          AWS_REGION: ${{ secrets.AWS_REGION }}
-          AWS_SECRET_ID: ${{ secrets.AWS_SECRET_ID }}
-          AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: ${{ secrets.AWS_REGION }}
+          function_name: AddressService
+          zip_file: build-${{ github.sha }}.zip
       # - name: Deploy lambda with template.yml
       #   uses: aws-actions/aws-cloudformation-github-deploy@v1
       #   with:
