@@ -13,7 +13,7 @@ Parameters:
   # Optional Value, for reference (already filled while first deployment)
   AppEnv:
     Type: String
-    Value: DEV
+    Value: QA
   LambdaRoleArn:
     Type: String
     Value: arn:aws:iam::966096194764:role/LambdaExecution
