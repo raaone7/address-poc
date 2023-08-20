@@ -36,8 +36,6 @@ GSI
 userId-index	
 Partition key - userId 
 ```
-- Create a DYNAMODB table
-- run the CDK scripts to set up the infrastructure
 
 ### Local Testing
 - Create new file `.env` based on .env.sample and enter your AWS credentials
@@ -47,7 +45,6 @@ Partition key - userId
   ```
 - pnpm i
 - hit F5 in vscode to run in local
-
 
 ### Deployment ??
 - Run CDK to deploy infrastructure
