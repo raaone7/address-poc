@@ -5,6 +5,7 @@ Description: Address Service Lambda
 Parameters:
   S3Key:
     Type: String
+    Value: artifacts-lambda-2023
   # Fixed values
   Repository:
     Type: String
@@ -12,8 +13,10 @@ Parameters:
   # Optional Value, for reference (already filled while first deployment)
   AppEnv:
     Type: String
+    Value: DEV
   LambdaRoleArn:
     Type: String
+    Value: arn:aws:iam::966096194764:role/LambdaExecution
   S3Bucket: 
     Type: String
 
