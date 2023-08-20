@@ -15,7 +15,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18.16.0
-          cache: 'pnpm'
+          cache: "pnpm"
       - name: Install Dependencies
         run: pnpm install
       - name: Lint & Format
@@ -36,10 +36,17 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
       - name: Upload zip to s3
         run: aws s3 cp build-${{ github.sha }}.zip s3://artifacts-lambda-2023
-      - name: Deploy lambda with template.yml
-        uses: aws-actions/aws-cloudformation-github-deploy@v1
+      - uses: mupixa/deploy-lambda
         with:
-          name: ${{ github.event.repository.name }}
-          template: template.yml
-          no-fail-on-empty-changeset: "1"
-          parameter-overrides: "S3Bucket=artifacts-lambda-2023,S3Key=build-${{ github.sha }}.zip"
+          ZIP: build-${{ github.sha }}.zip
+          FUNCTION_NAME: AddressService
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          AWS_SECRET_ID: ${{ secrets.AWS_SECRET_ID }}
+          AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
+      # - name: Deploy lambda with template.yml
+      #   uses: aws-actions/aws-cloudformation-github-deploy@v1
+      #   with:
+      #     name: ${{ github.event.repository.name }}
+      #     template: template.yml
+      #     no-fail-on-empty-changeset: "1"
+      #     parameter-overrides: "S3Bucket=artifacts-lambda-2023,S3Key=build-${{ github.sha }}.zip"
