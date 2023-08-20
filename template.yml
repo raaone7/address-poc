@@ -8,7 +8,7 @@ Parameters:
   # Fixed values
   Repository:
     Type: String
-    Default: address-service
+    Default: AddressService
   # Optional Value, for reference (already filled while first deployment)
   AppEnv:
     Type: String
