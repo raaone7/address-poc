@@ -8,7 +8,7 @@ export const getAddressesOfUser = async ({
 	suburb,
 }: { userId: string; postCode?: string; suburb?: string }) => {
 	const query = {
-		IndexName: "userId-index",
+		IndexName: "userId-createdAt-index",
 		KeyConditionExpression: "#userId = :userId",
 		ExpressionAttributeNames: { "#userId": "userId" },
 		ExpressionAttributeValues: { ":userId": userId },
