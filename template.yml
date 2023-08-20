@@ -19,6 +19,7 @@ Parameters:
     Default: arn:aws:iam::966096194764:role/LambdaExecution
   S3Bucket: 
     Type: String
+    Default: artifacts-lambda-2023
 
 Mappings:
   Variables:
