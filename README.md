@@ -48,6 +48,7 @@ Partition key - userId
 - pnpm i
 - hit F5 in vscode to run in local
 
+
 ### Deployment ??
 - Run CDK to deploy infrastructure
 - Commit and push to github, 
