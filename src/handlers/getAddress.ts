@@ -23,6 +23,7 @@ const mapAddress = (dbItems: AddressDBItem[]) => {
 		})
 		.map((i) => {
 			return {
+				userId: i.userId,
 				id: i.id,
 				...i.address,
 				createdAt: i.createdAt,
